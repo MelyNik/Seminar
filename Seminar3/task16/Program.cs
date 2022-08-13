@@ -15,7 +15,7 @@ double pointBx = Convert.ToDouble(Console.ReadLine());
 double pointBy = Convert.ToDouble(Console.ReadLine());
 
 double lengthC = Math.Sqrt(Math.Pow((pointAx - pointBx), 2) + Math.Pow((pointAy - pointBy), 2));
-Console.WriteLine(lengthC);
+Console.WriteLine(Math.Round(lengthC, 2));   //  Math.Round(lengthC, 2) - означает , что  после запятой оставить 2 знака.
 /*
 Math.Pow((pointAx - pointBx), 2) - Означает, что выражение (pointAx - pointBx) в квадрате
 Math.Pow((...), 2):

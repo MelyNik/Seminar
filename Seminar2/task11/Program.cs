@@ -6,7 +6,7 @@
 34, 5 -> не кратно, остаток 4 16, 4 -> кратно
 */
 
-Console.WriteLine("Введите певое число: ");
+Console.WriteLine("Введите первое число: ");
 int number1 = Convert.ToInt32(Console.ReadLine());
 Console.WriteLine("Введите второе число: ");
 int number2 = Convert.ToInt32(Console.ReadLine()); 
