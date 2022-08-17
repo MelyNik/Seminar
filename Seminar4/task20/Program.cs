@@ -6,15 +6,18 @@
 89126 -> 5
 */
 
-string NumberOfDigits(string text)
+int NumberOfDigits(int number)
 {
-    string Length = text.Length;
-    Length = Convert.ToInt32;
-    return Length;
+    int result = 0;
+    while (number > 0 || number < 0)
+    {
+        number = number / 10;
+        result++;
+    }
+    return result;
 }
 
 Console.WriteLine("Введите число: ");
-string text = Console.ReadLine();
+int number = Convert.ToInt32(Console.ReadLine());
 
-int Length = NumberOfDigits(text);
-Console.WriteLine(Length);
+Console.WriteLine($"Количество цифр числа {number} = {NumberOfDigits(number)} ");

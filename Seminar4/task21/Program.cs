@@ -28,4 +28,4 @@ int GetSumNumbers(int number)
 }
 
 Console.WriteLine($"Cумма чисел от 1 до А = {GetSumNumbers(number)}");
-
+1
