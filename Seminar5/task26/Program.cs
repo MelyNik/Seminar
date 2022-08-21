@@ -21,7 +21,7 @@ void FindingTheSpecifiedIntervalOfTheArray(int[] array)
         Console.Write($"{array[i]} ");
         if (array[i]<99 && array[i] > 9)
         {
-            sum = sum + 1;
+            sum ++;
         }
         i++;
     }

@@ -12,7 +12,7 @@ int[] arr = new int[length];
 void RandomArray(int[] array)
 {
     int i = 0;
-    Console.Write($"Пердоcтавлен массив: ");
+    Console.Write($"Предоcтавлен массив: ");
     while (i < array.Length)
     {
         array[i] = new Random().Next(1, 21);
@@ -28,7 +28,7 @@ void ProductsOfArrayNumbers(int[] array)
     {
         int i = 0;
         int j = array.Length - 1;
-        Console.Write($"Произведение крайних чиселмассива: ");
+        Console.Write($"Произведение крайних чисел массива: ");
         while (i < array.Length / 2)
         {
             int composition = array[i] * array[j];

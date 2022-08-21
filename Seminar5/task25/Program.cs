@@ -8,30 +8,37 @@
 Console.WriteLine($"Введите число: ");
 int number = int.Parse(Console.ReadLine());
 
-int length = new Random().Next(5,15);
+int length = new Random().Next(5, 15);
 int[] arr = new int[length];
 
 void RandomArray(int[] array, int number)
 {
     int i = 0;
     Console.Write($"В данном массиве: ");
-    while( i < array.Length)
+    while (i < array.Length)
     {
-        array[i] = new Random().Next(-9,10);
+        array[i] = new Random().Next(-9, 10);
         Console.Write($"{array[i]} ");
         i++;
     }
     int j = 0;
-    while(j < array.Length)
+    int sum = 0;
+    while (j < array.Length)
     {
-        if(array[j] == number || array[j] == -number)
+        if (array[j] == number || array[j] == -number)
         {
-            Console.Write($"присутствует число {number}");
-            break;
+            sum =  1;
         }
         j++;
     }
-    Console.WriteLine($"отсутствует число {number}");
+    if (sum == 1)
+    {
+        Console.Write($"присутствует число {number}");
+    }
+    else
+    {
+        Console.WriteLine($"отсутствует число {number}");
+    }
     Console.WriteLine();
 }
 

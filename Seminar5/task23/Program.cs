@@ -5,6 +5,8 @@
 сумма отрицательных равна -20.
 */
 
+/*
+Мой вариант:
 int length = 12;
 int[] arr = new int[length];
 
@@ -36,3 +38,33 @@ void RandomArray(int[] array)
 }
 
 RandomArray(arr);
+*/
+// Преподавателя
+
+int[] GetArray(int size, int minValue, int maxValue)
+{
+    int[] res = new int [size]; // Длина массива.
+    for(int i = 0; i < size; i++) // Тут можем указать в место size, res так как к res присвоили длину массива.
+    {
+        res[i] = new Random().Next(minValue,maxValue+1);
+        Console.Write($"{res[i]} ");
+    }
+    return res;
+}
+int[] array = GetArray(12, -9, 9);
+int positiveSum = 0;
+int negativeSum = 0;
+foreach(int i in array) // Тут i это не индекс массива, а элемент массива.
+{
+    if(i>0)
+    {
+        positiveSum = positiveSum + i; // Вместо positiveSum = positiveSum + i, можно использовать positiveSum += i.
+    }   
+    else
+    {
+        negativeSum = negativeSum + i; // Вместо positiveSum = positiveSum + i, можно использовать positiveSum += i.
+    }
+}
+Console.WriteLine();
+Console.WriteLine($"Сумма положительных элементов массива = {positiveSum} ");
+Console.WriteLine($"Сумма отрицательных элементов массива = {negativeSum} ");
