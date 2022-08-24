@@ -5,6 +5,8 @@
 [1 2 3 4 5] -> [5 4 3 2 1]
 [6 7 3 6] -> [6 3 7 6]
 */
+/*
+Мой вариант.
 
 void RandomArray(int[] array, int minNumber, int maxNumber)
 {
@@ -47,3 +49,32 @@ int[] arr = new int[new Random().Next(5, 10)];
 RandomArray(arr, 1, 10);
 PrintArray(arr);
 ModificationArray(arr);
+*/
+
+
+int[] GetArray(int size, int minValue, int maxValue)
+{
+    int[] array = new int[size];
+    Console.WriteLine($"Создан массив: ");
+    for(int i=0; i<size; i++)
+    {
+        array[i] = new Random().Next(minValue,maxValue);
+    }
+    return array;
+}
+
+int[] ReversArray(int[] array)
+{
+    int[] arr = new int[array.Length];
+    for(int i = 0; i<array.Length; i++)
+    {
+        arr[i] = array[array.Length-1-i];
+    }
+    return arr;
+}
+
+int[] array = GetArray(10, 1, 10);
+Console.WriteLine(String.Join(" ",array));
+int[] revers = ReversArray(array);
+Console.WriteLine(String.Join(" ",revers));
+
