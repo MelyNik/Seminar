@@ -54,35 +54,45 @@ LengthOfNumbersFibonacci(number);
 
 */
 
-Console.WriteLine($"Введите длину чисел Фмбоначчи: ");
+Console.WriteLine($"Введите длину чисел Фибоначчи: ");
 int length = Convert.ToInt32(Console.ReadLine());
 
-int[] arr = new int[length];
-
-void LengthFibonacci(int[] arr)
+int[] LengthFibonacci(int length)
 {
+    int[] arr = new int[length];
     arr[0] = 0;
-    arr[1] = arr[2] = 1;
-    int i = 3;
+    arr[1] = 1;
+    int i = 2;
     while (i < arr.Length)
     {
         arr[i] = arr[i - 1] + arr[i - 2];
         i++;
     }
+    return arr;
 }
 
 void PrintArray(int[] array)
 {
     int i = 0;
-    while(i<array.Length)
+    while (i < array.Length)
     {
-        Console.Write($"{array[i]} ");
+        if (i == 0)
+        {
+            Console.Write($"[");
+        }
+        if (i< array.Length-1)
+        {
+            Console.Write($"{array[i]}, ");
+        }
+        else
+        {
+            Console.Write($"{array[i]}]");
+        }
         i++;
     }
     Console.WriteLine();
 }
 
-LengthFibonacci(arr);
-PrintArray(arr);
-
+int[] array = LengthFibonacci(length);
+PrintArray(array);
 

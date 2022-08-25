@@ -55,6 +55,7 @@ int[] array = GetArray(12, -9, 9);
 int positiveSum = 0;
 int negativeSum = 0;
 foreach(int i in array) // Тут i это не индекс массива, а элемент массива.
+// то есть нужно выводить именно i, а под каждой i, будет по очереди выводиться array[0....n].
 {
     if(i>0)
     {

@@ -7,7 +7,7 @@
 */
 /*
 
-Мой не доделанный вариант:
+Мой не доделанный первый вариант:
 
 Console.WriteLine($"Введите десятичное число: ");
 int number = int.Parse(Console.ReadLine());
@@ -29,14 +29,97 @@ void BinaryNumber(int number)
 }
 */
 
+/*
+
+Мой не доделанный второй вариант:
+
+int[] BinaryArray(int number)
+{
+    int num = number;
+    int result = 0;
+    int j = 0;
+    int[] arr = new int[j];
+    while (num > 0)
+    {
+        result = num % 2;
+        num = num / 2;
+        if (result > 0)
+        {
+            arr[j] = 1;
+        }
+        else
+        {
+            arr[j] = 0;
+        }
+        j++;
+    }
+    return arr;
+}
+
+int[] ReversArray(int[] arr)
+{
+    int[] array = new int[arr.Length];
+    for (int j = 0; j < arr.Length; j++)
+    {
+        array[j] = arr[arr.Length - 1 - j];
+    }
+    return array;
+}
+
 Console.WriteLine($"Введите число: ");
 int number = Convert.ToInt32(Console.ReadLine());
 
-int num = number;
-int result1 = 0;
-int result2 = 0;
-for(int i = 0; i<number; i++)
+int[] arr = BinaryArray(number);
+Console.WriteLine($"{arr}");
+
+int[] revers = ReversArray(arr);
+Console.WriteLine($"{revers}");
+
+*/
+
+/*
+
+Вариант с семинара не доделанный:
+
+Console.WriteLine($"Ввидети число: ");
+int number = Convert.ToInt32(Console.ReadLine());
+
+int digit = number;
+int remains = 0;
+while(digit>0)
 {
-    result1 = num / 2;
-    result2 = num % 2;
+    remains = digit % 2;
+    Console.Write($"{remains} ");
+    digit = digit / 2;  
+    int i = 0;
+    int[] arr = new int[i];
+    arr[i] = remains;
+    i++;
 }
+Console.WriteLine();
+
+ Задача не решена из за преподователя !!!
+
+*/
+/*
+
+Вариант через рекурсия, но не работает на больше числа:
+
+Console.WriteLine($"Введите число: ");
+int number = int.Parse(Console.ReadLine());
+
+int TenToTwo(int number)
+{
+    if(number == 1)
+    {
+        return 1;
+    }
+    else if (number == 0)
+    {
+        return 0;
+    }
+    return number % 2 + 10 * TenToTwo(number/2);
+}
+int result = TenToTwo(number);
+Console.WriteLine($"{result} ");
+*/
