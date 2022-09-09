@@ -6,6 +6,10 @@ A = 3; B = 5 -> 243 (3⁵)
 A = 2; B = 3 -> 8
 */
 
+/*
+
+Мой вариант:
+
 int Exponentiation(int a, int b)
 {
     if( b == 0)
@@ -26,3 +30,29 @@ int numberB = Convert.ToInt32(Console.ReadLine());
 
 int result = Exponentiation(numberA,numberB);
 Console.WriteLine(result);
+*/
+/*
+Или
+
+int Rec(int numberA, int numberB)
+{
+    return numberB == 0 ? 1 : Rec(numberA, numberB-1) * numberA;
+}
+Console.WriteLine(Rec(3,5));
+*/
+
+
+int Rec(int numberA, int numberB)
+{
+    if (numberB == 1)
+    {
+        return 1; 
+    }  
+    else
+    {
+        return Rec(numberA, numberB-1) * numberA;
+    }
+}
+Console.WriteLine(Rec(3,5));
+
+

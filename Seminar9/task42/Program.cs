@@ -6,6 +6,9 @@ N = 5 -> "1, 2, 3, 4, 5"
 N = 6 -> "1, 2, 3, 4, 5, 6"
 */
 
+/*
+
+Мой вариант:
 
 Random r = new Random();
 int n = r.Next(1, 9);
@@ -25,3 +28,19 @@ else
     Console.Write($"{i} \t");
     }
 }
+*/
+
+string Number(int a, int b)
+{
+    if(a<=b)
+    {
+        return $"{a} " + Number(a + 1, b);
+    }
+    else
+    {
+        return $"b";
+    }
+}
+
+Console.WriteLine(Number(1,10));
+

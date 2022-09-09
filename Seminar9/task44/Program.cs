@@ -5,6 +5,9 @@
 453 -> 12
 45 -> 9
 */
+/*
+
+Мой вариант:
 
 int SumDigitsNumber(int number)
 {
@@ -32,3 +35,18 @@ int number = Convert.ToInt32(Console.ReadLine());
 int result = SumDigitsNumber(number);
 
 Console.WriteLine($"Сумма цифр числа {number} = {result}");
+
+*/
+
+int Rec(int number)
+{
+    if(number==0)
+    {
+        return 0;
+    }
+    else
+    {
+        return number%10 + Rec(number/10);;
+    }
+}
+Console.WriteLine(Rec(456));

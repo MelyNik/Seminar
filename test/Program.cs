@@ -1,95 +1,87 @@
-int rows = new Random().Next(3, 6);
-int columns = new Random().Next(3, 6);
-
-int [,] array = GetArray(rows, columns, 0, 20);
-PrintArray(array);
-Console.WriteLine();
-
-int [] minimumIndex = MinValue(array);
-Console.WriteLine($"{minimumIndex[0]}, {minimumIndex[1]}");
-Console.WriteLine();
-
-int[,] resultArray = DeleteArray(array, minimumIndex);
-PrintArray(resultArray);
-
-
-int [,] GetArray(int rows, int columns, int min, int max)
+int[,] GetArray(int line, int column, int min, int max)
 {
-    int [,] result = new int [rows,columns];
-    for(int i = 0; i < rows; i++)
+    int[,] array = new int[line, column];
+    for (int i = 0; i < line; i++)
     {
-        for(int j = 0; j < columns; j++)
+        for (int j = 0; j < column; j++)
         {
-            result[i,j] = new Random().Next(min, max);
+            array[i, j] = new Random().Next(min, max+1);
         }
     }
-    return result;
+    return array;
 }
 
-void PrintArray(int [,] array)
+void PrintArray(int[,] array)
 {
-    for(int i = 0; i < array.GetLength(0); i++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-        for(int j = 0; j < array.GetLength(1); j++)
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            Console.Write($"{array[i,j]} ");
+            Console.Write($"{array[i, j]} ");
         }
         Console.WriteLine();
     }
 }
 
-int[] MinValue(int[,] array)
+int[] ChangeArray(int[,] array)
 {
-    int min = array[0,0];
-    int minIndexI = 0;
-    int minIndexJ = 0;
-    for(int i = 0; i < array.GetLength(0); i++)
-     {
-        for(int j = 0; j < array.GetLength(1); j++)
+    int[] arr = new int[array.GetLength(0) * array.GetLength(1)];
+    int k = 0;
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
         {
-            if(array[i,j] < min)
-            {
-               min = array[i,j];
-               minIndexI = i;
-               minIndexJ = j; 
-            }
+            arr[k] = array[i, j];
+            k++;
         }
-     } 
-     int[] result = new int [2];
-     result [0] = minIndexI;
-     result [1] = minIndexJ;
-     return result;
+    }
+    return arr;
 }
 
-int[,] DeleteArray(int [,] array, int [] index)
+int[] SortArray(int[] array)
 {
-    int [,] result = new int [array.GetLength(0) - 1, array.GetLength(1) - 1];
-    int minI = index[0];
-    int minJ = index[1];
-     for(int i = 0; i < array.GetLength(0) - 1; i++)
-     {
-        for(int j = 0; j < array.GetLength(1) - 1; j++)
+    for (int i = 0; i < array.Length; i++)
+    {
+        for (int j = i + 1; j < array.Length; j++)
         {
-            if(i < minI && j < minJ)
+            if (array[j] < array[i])
             {
-               result[i,j] = array[i,j];
-            }
-            else
-            {
-                if(i < minI)
-                {
-                    result[i,j] = array[i,j+1];
-                }
-                else if(j < minJ)
-                {
-                    result[i,j] = array[i+1,j];
-                }
-                else
-                {
-                    result[i,j] = array[i+1,j+1];//главное не запутаться в условиях
-                }
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
             }
         }
-     } 
-     return result;
+    }
+    return array;
 }
+
+void PrintSortArray(int[] array)
+{
+    int count = 1;
+    int firstNumber = array[0];
+    for (int i = 1; i < array.Length; i++)
+    {
+        if (array[i] != firstNumber)
+        {
+            Console.WriteLine($"{firstNumber} встречается {count} раз(а)");
+            firstNumber = array[i];
+            count = 1;
+        }
+        else
+        {
+            count++;
+        }
+    }
+    Console.WriteLine($"{firstNumber} встречается {count} раз(а)");
+}
+
+
+int lines = 50;
+int columns = 50;
+
+int[,] array = GetArray(lines, columns, 1, 10);
+PrintArray(array);
+int[] result = ChangeArray(array);
+result = SortArray(result);
+Console.WriteLine();
+PrintSortArray(result);

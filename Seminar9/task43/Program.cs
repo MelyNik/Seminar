@@ -5,6 +5,9 @@
 M = 1; N = 5 -> "1, 2, 3, 4, 5"
 M = 4; N = 8 -> "4, 6, 7, 8"
 */
+/*
+
+Мой вариант:
 
 int[] DeterminationMaximumNumber(int m, int n)
 {
@@ -43,3 +46,18 @@ else
     Console.Write($"{i} \t");
     }
 }
+*/
+
+string Number(int a, int b)
+{
+    if(a<=b)
+    {
+        return $"{a} " + Number(a + 1, b);
+    }
+    else
+    {
+        return String.Empty;
+    }
+}
+
+Console.WriteLine(Number(1,10));
